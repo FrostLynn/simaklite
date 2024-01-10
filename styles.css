@@ -64,6 +64,11 @@ button:hover {
     text-align: center;
 }
 
+#fileContainer img {
+    max-width: 100%;
+    height: auto;
+}
+
 .footer-container {
     margin-top: 40px;
     padding: 20px;
