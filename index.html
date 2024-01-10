@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <title>SIMAK UNSIL Lite</title>
+</head>
+<body>
+    <div class="header-container">
+        <a href="https://unsil.ac.id/" target="_blank">
+            <img src="logo.png" alt="Logo Unsil" style="width:100px;height:100px;">
+        </a>
+        <h1>SIMAK UNSIL Lite</h1>
+    </div>
+
+    <div class="container">
+        <form id="fileForm">
+            <label for="tahunAngkatan">Tahun Angkatan:</label>
+            <input type="text" id="tahunAngkatan" name="tahunAngkatan" required>
+            
+            <label for="npm">NPM:</label>
+            <input type="text" id="npm" name="npm" required>
+
+            <label for="downloadType">Pilihan File:</label>
+            <select id="downloadType" name="downloadType">
+                <option value="image">Foto SIMAK</option>
+                <option value="pdf">Transkrip Nilai</option>
+            </select>
+            
+            <button type="button" onclick="displayFile()">Tampilkan</button>
+        </form>
+        <div id="fileContainer"></div>
+    </div>
+
+    <div class="footer-container">
+        FL - 
+        <a href="https://github.com/FrostLynn/simaklite" target="_blank">GITHUB</a>
+        2024
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
