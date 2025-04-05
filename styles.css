@@ -1,94 +1,242 @@
-/* Reset some default styles */
-body, h1, h2, p, label, select, button {
-    margin: 0;
-    padding: 0;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #6366f1;
+        --secondary: #10b981;
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #f3f4f6;
+        --text-secondary: #e5e7eb;
+    }
+}
+
+[data-theme="dark"] {
+    --primary: #6366f1;
+    --secondary: #10b981;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #f3f4f6;
+    --text-secondary: #e5e7eb;
+}
+
+/* Update existing body style */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary, #111827);
+}
+
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Update card style */
+.card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--bg-secondary);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Update text colors */
+[data-theme="dark"] .text-gray-800 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .text-gray-600,
+[data-theme="dark"] .text-gray-500 {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .input-field {
+    background-color: var(--bg-secondary);
+    border-color: #4b5563;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="dark"] #fileContainer {
+    background-color: var(--bg-primary);
+    border-color: #4b5563;
+}
+
+[data-theme="dark"] .file\:bg-indigo-50 {
+    background-color: #312e81;
+}
+
+[data-theme="dark"] .file\:text-indigo-700 {
+    color: #a5b4fc;
+}
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #10b981;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.header-container {
-    color: #636363;
-    padding: 20px;
-    text-align: center;
+.card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.header-container img {
-    border-radius: 50%;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
 }
 
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.input-field {
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
 }
 
-form {
-    display: grid;
-    grid-gap: 10px;
+.input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
 }
 
-label {
-    font-weight: bold;
+.btn-primary {
+    background-color: var(--primary);
+    transition: all 0.3s ease;
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.btn-primary:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
 }
 
-button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.btn-primary:active {
+    transform: translateY(0);
 }
 
-button:hover {
-    background-color: #388e3c;
+.wave {
+    animation: wave 2s infinite;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 #fileContainer {
-    margin-top: 20px;
-    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#fileContainer embed {
+    min-height: 500px;
 }
 
 #fileContainer img {
-    max-width: 100%;
-    height: auto;
+    max-height: 400px;
+    object-fit: contain;
 }
 
-.footer-container {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-    color: #000000;
+/* Style untuk text label di light dan dark mode */
+.text-label {
+    color: var(--text-gray-700, #374151);
 }
 
-.footer-container a {
-    color: #4caf50; /* Set the color to green */
-    text-decoration: none; /* Remove underline from the link */
+[data-theme="dark"] .text-label {
+    color: var(--text-secondary, #e5e7eb);
 }
 
-.footer-container a:hover {
-    text-decoration: underline; /* Add underline on hover */
+/* Style untuk icon di label */
+.text-label i {
+    color: var(--primary, #4f46e5);
 }
 
-/* Responsive styles */
-@media (max-width: 600px) {
-    .container {
-        max-width: 100%;
-        margin: 10px;
-    }
+/* Style untuk text help di bawah input */
+.text-help {
+    color: var(--text-gray-500, #6b7280);
+}
+
+[data-theme="dark"] .text-help {
+    color: var(--text-secondary, #e5e7eb);
+}
+
+/* Tambahkan style untuk input text */
+.input-field {
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    color: var(--text-input, #111827); /* Warna teks default */
+    background-color: var(--bg-input, #ffffff); /* Warna background default */
+}
+
+[data-theme="dark"] .input-field {
+    color: var(--text-primary, #f3f4f6); /* Warna teks dark mode */
+    background-color: var(--bg-secondary, #2d2d2d); /* Warna background dark mode */
+    border-color: #4b5563;
+}
+
+/* Placeholder color */
+.input-field::placeholder {
+    color: var(--text-placeholder, #9ca3af);
+}
+
+[data-theme="dark"] .input-field::placeholder {
+    color: var(--text-secondary, #9ca3af);
+}
+
+/* Untuk select dropdown */
+[data-theme="dark"] .input-field option {
+    background-color: var(--bg-secondary, #2d2d2d);
+    color: var(--text-primary, #f3f4f6);
+}
+
+/* Ganti atau tambahkan style untuk button submit */
+.btn-submit {
+    background-color: var(--submit-primary, #10b981); /* Hijau */
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--submit-hover, #059669); /* Hijau lebih gelap */
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Update variabel untuk dark mode */
+:root {
+    --submit-primary: #10b981;
+    --submit-hover: #059669;
+}
+
+[data-theme="dark"] {
+    --submit-primary: #059669;
+    --submit-hover: #047857;
 }
